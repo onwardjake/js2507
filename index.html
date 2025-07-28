@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <style>
+        .contents {
+            width: 90%;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid #777;
+            border-collapse: collapse;
+            padding: 3px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #ccc;
+        }
+
+        .td_no_width {
+            width: 100px;
+        }
+
+        .td_date_width {
+            width: 200px;
+        }
+
+        .td_links_width {
+            width: 500px;
+        }
+
+        .result_frame {
+            margin: 10px auto;
+            width: 100%;
+            height: 800px;
+            scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contents">
+        <h1>풀스택 개발 과정 실습 및 과제 제출용 페이지 : Javascript</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td class="td_no_width">수업 회차</td>
+                    <td class="td_date_width">날짜</td>
+                    <td class="td_links_width">과제 링크</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td>2025-07-28 월요일</td>
+                    <td>
+                        <!-- <a href="./work/day09_20250728/bg_li.html" target="_blank">배경 꾸미기 (새창)</a> |
+                        <a href="./work/day09_20250728/bg_li.html" target="resultFrame">iframe에서 확인</a>
+                        <br> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2025-07-25 금요일</td>
+                    <td>
+                        <a href="./work/day02_20250725/multiplication_table.html" target="_blank">구구단 (새창)</a> |
+                        <a href="./work/day02_20250725/multiplication_table.html" target="resultFrame">iframe에서 확인</a>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2025-07-24 목요일</td>
+                    <td>
+                        <a href="./work/day01_20250724/js01.html" target="_blank">Hello World! (새창)</a> |
+                        <a href="./work/day01_20250724/js01.html" target="resultFrame">iframe에서 확인</a>
+                        <br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!-- 링크 결과를 iframe에 표시한다 -->
+    <div class="result">
+        <h3>과제 링크에서 "iframe에서 확인"을 클릭하면, 아래의 영역에 과제가 바로 표시됩니다.</h3>
+        <iframe class="result_frame" name="resultFrame" src="about:blank"></iframe>
+    </div>
+</body>
+
+</html>
