@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button event</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        li {
+            width: 100px;
+            display: inline-block;
+            list-style-type: none;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .rect {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+            border-radius: 1em;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li><a href="#" onclick="chColor('green');">Green</a></li>
+            <li><a href="#" onclick="chColor('blue');">Blue</a></li>
+            <li><a href="#" onclick="chColor('red');">Red</a></li>
+        </ul>
+        <div class="rect"></div>
+    </div>
+
+    <script src="./js/btn_color.js"></script>
+</body>
+
+</html>
