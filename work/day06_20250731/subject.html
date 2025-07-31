@@ -1,0 +1,80 @@
+<!-- <!DOCTYPE html> -->
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Programming</title>
+  <link rel="stylesheet" href="css/subject.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Web Programming</h1>
+    <p>공부할 주제를 기록해 보세요</p>
+    <form action="">
+      <label for="subject" class="hidden">주제</label>
+      <input type="text" id="subject" autofocus>
+      <button class="addLast">추가 (뒤에)</button>
+      <button class="addFirst">추가 (앞에)</button>
+    </form>
+    <hr>
+    <ul id="itemList"></ul>
+  </div>
+
+  <script>
+    // 웹 페이지가 로딩이 완료된 후에 이벤트 리스너를 등록한다.
+    document.addEventListener("DOMContentLoaded", function () {
+      // "추가 (뒤에)" 버튼을 가지고 와서 이벤트 리스너와 연결한다
+      const btnAddLast = document.querySelector(".addLast");
+      btnAddLast.addEventListener("click", function (event) {
+        // form의 click 시 발생하는 기본 이벤트 동작을 취소한다
+        event.preventDefault();
+        // li 항목을 추가하는 함수를 호출한다.
+        addSubject();
+      }, false);
+
+      // "추가 (앞에)" 버튼을 가지고 와서 이벤트 리스너와 연결한다
+      const btnAddFirst = document.querySelector(".addFirst");
+      btnAddFirst.addEventListener("click", function (event) {
+        // form의 click 시 발생하는 기본 이벤트 동작을 취소한다
+        event.preventDefault();
+        // li 항목을 추가하는 함수를 호출한다.
+        addSubject(true);
+      }, false);
+
+      // 추가한 항목을 클릭하면 노드를 삭제하는 이벤트를 추가한다.
+      // 이벤트 위임(Event Delegation)을 통해 ul이 이벤트를 받아서 li 항목을 삭제하는 방식을 적용한다.
+      const itemList = document.querySelector("#itemList");
+      itemList.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI")
+          if (confirm("항목을 삭제하시겠습니까?"))
+            event.target.remove();
+      });
+    }
+    );
+
+
+    // 버튼 클릭 시 동작하는 이벤트
+    function addSubject(isFirst = false) {
+      // li 요소를 만든다
+      const newItem = document.createElement("li");
+
+      // text 요소를 만든다
+      console.log(document.getElementById("subject").value);
+      const textNode = document.createTextNode(document.getElementById("subject").value);
+
+      // li에 자식노드로 text 요소를 추가한다
+      newItem.appendChild(textNode);
+
+      // ul에 자식노드로 li 요소를 추가한다
+      const itemList = document.querySelector("#itemList");
+      // 앞에 붙이는 버튼을 눌렀으면 제일 앞에, 뒤에 붙이는 버튼을 눌렀으면 뒤에 붙인다.
+      console.log(`isFirst is ${isFirst}`);
+      isFirst ? itemList.insertBefore(newItem, itemList.childNodes[0]) : itemList.appendChild(newItem);
+
+    }
+  </script>
+</body>
+
+</html>
