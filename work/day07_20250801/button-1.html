@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>classList 추가/삭제 예제</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    div {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Do it! 필요한 클래스 스타일 정의하기 */
+    .disabled {
+      color: #ccc;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    .enabled {
+      color: #fff;
+      background-color: #007bff;
+      border: 1px solid #007bff;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <label>
+      <input type="checkbox" id="agree"> 필수 항목 동의
+    </label>
+  </div>
+  <div>
+    <button id="proceed" disabled>다음으로 진행</button>
+  </div>
+
+  <script>
+    // Do it! 체크 박스에 체크하면 버튼 활성화하기
+    // checkbox에 이벤트 리스너 등록
+    document.addEventListener("DOMContentLoaded", function () {
+      const checkBtn = document.querySelector("#agree");
+      // checkBtn.addEventListener("change", function () {
+      //   if (checkBtn.checked)
+      //     console.log("체크박스가 선택되었습니다.");
+      //   else
+      //     console.log("체크박스가 해제되었습니다.");
+      // });
+      checkBtn.addEventListener("change", agreeClicked);
+    });
+
+
+    // 콜백함수에서 checked 여부에 따라 proceed 버튼 활성화 / 비활성화 처리
+    function agreeClicked() {
+      const checkBtn = document.querySelector("#agree");
+      const proceed = document.querySelector("#proceed");
+      // proceed.classList.toggle("disabled", !checkBtn.checked);
+      proceed.disabled = !checkBtn.checked;
+      proceed.classList.toggle("enabled", checkBtn.checked);
+      proceed.classList.toggle("disabled", !checkBtn.checked);
+
+      /*
+      if (checkBtn.checked) {
+        console.log("체크박스가 선택되었습니다.");
+        // proceed.classList.remove("disbled");
+        // proceed.classList.add("enabled");
+        proceed.disabled = false;
+      }
+      else {
+        console.log("체크박스가 해제되었습니다.")
+        // proceed.classList.remove("enabled");
+        // proceed.classList.add("disbled");
+        proceed.disabled = true;
+      }
+        */
+    }
+  </script>
+</body>
+
+</html>

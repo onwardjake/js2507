@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 1</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+
+		li {
+			font-size: 20px;
+			line-height: 35px;
+		}
+
+		.check {
+			color: #ccc;
+			font-size: 20px;
+			margin-right: 25px;
+		}
+
+		.check:hover {
+			color: #222;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>할 일 목록</h1>
+	<ul>
+		<li><span class="check">&check;</span>할 일 1 </li>
+		<li><span class="check">&check;</span>할 일 2 </li>
+		<li><span class="check">&check;</span>할 일 3 </li>
+		<li><span class="check">&check;</span>할 일 4 </li>
+		<li><span class="check">&check;</span>할 일 5 </li>
+	</ul>
+
+	<script>
+		// 화면이 로드가 완료되었을 때 동작하는 이벤트 리스너를 추가한다
+		document.addEventListener("DOMContentLoaded", function () {
+			// ul 요소를 선택한다
+			const todoList = document.querySelector("ul");
+			// 클릭 이벤트에 대한 이벤트 리스너를 추가한다
+			// ul에 이벤트 리스너를 추가한다
+			todoList.addEventListener("click", (event) => {
+				// 클릭 이벤트 발생 시 이벤트가 발생한 항목의 색상을 gray로 변경하고 취소선을 그어준다
+				// if (event.target.tagName === "LI") {
+				if (event.target.classList.contains("check")) {
+					// span 노드에서 이벤트가 발생했으므로, 부모 노드인 li 노드에 스타일을 추가해준다
+					event.target.parentNode.style.color = "#ccc";
+					event.target.parentNode.style.textDecoration = "line-through";
+				}
+			});
+		});
+
+
+	</script>
+</body>
+
+</html>

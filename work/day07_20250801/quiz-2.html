@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 2</title>
+</head>
+
+<body>
+	<div class="container">
+		<section id="userinput">
+			<form action="#">
+				<input type="number" name="rows" id="rows">
+				<label for="rows">행</label>
+				<input type="number" name="columns" id="columns">
+				<label for="columns">열</label>
+				<button id="mk_table">작성</button>
+			</form>
+		</section>
+		<section id="result">
+
+		</section>
+	</div>
+	<script>
+		// 화면 로도 완료 이벤트 리스너를 등록한다
+		document.addEventListener("DOMContentLoaded", () => {
+			// "작성" 버튼 클릭에 대한 이벤트를 등록한다.
+			const btn = document.querySelector("#mk_table");
+			btn.addEventListener("click", (event) => {
+				// 기존 form action은 동작하지 않도록 한다
+				event.preventDefault();
+				// 값이 제대로 입력되었는지 체크한다 (validation check)
+				const rows = document.querySelector("#rows");
+				const columns = document.querySelector("#columns");
+				if (rows.value && rows.value > 0 && columns.value && columns.value > 0) {
+					console.log(`행 : ${rows.value}, 열 : ${columns.value}`);
+				}
+				else {
+					alert("행과 열에 1 이상의 숫자를 입력해주세요.")
+				}
+
+				// 테이블을 그리는 함수를 호출한다.
+				drawTable(rows.value, columns.value);
+			})
+		});
+
+		// 화면에 테이블을 그린다.
+		function drawTable(rows, columns) {
+			// section 노드를 가지고 온다
+			const nodeSection = document.querySelector("#result");
+			// 테이블 노드를 만든다.
+			const nodeTable = document.createElement("table");
+			nodeTable.style.border = "1px solid #ccc";
+			nodeTable.style.borderCollapse = "collapse";
+			nodeTable.style.margin = "20px 0";
+			// result section의 child 노드로 추가한다
+			nodeSection.appendChild(nodeTable);
+
+			// 행 개수만큼 돌면서 행 노드를 만들어서 테이블 노드의 child 노드로 추가한다
+			for (let i = 0; i < rows; i++) {
+				let nodeRow = document.createElement("tr");
+				nodeTable.appendChild(nodeRow);
+
+				// 열 개수만큼 돌면서 열 노드를 만들어서 행 노드의 child 노드로 추가한다
+				for (let j = 0; j < columns; j++) {
+					// td 노드와 text 노드를 만든다
+					let nodeColumn = document.createElement("td");
+					let tableIdx = document.createTextNode(`${i}, ${j}`);
+
+					// td 노드에 스타일을 추가한다
+					nodeColumn.style.width = "7em";
+					nodeColumn.style.height = "1.5em"
+					nodeColumn.style.border = "1px solid #ccc";
+					nodeColumn.style.textAlign = "center";
+
+					// 열 노드에 텍스트 노드를 추가한다
+					nodeColumn.appendChild(tableIdx);
+
+					// 행 노드에 열 노드를 추가한다
+					nodeRow.appendChild(nodeColumn);
+				}
+			}
+		}
+
+	</script>
+</body>
+
+</html>
