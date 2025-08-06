@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* wrap */
+#wrap {
+    width: 100%;
+    height: 700px;
+    color: #fff;
+}
+
+/* header */
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #777;
+}
+
+#header .container{
+    display: flex;
+}
+
+#header .container .logo {
+    width: 200px;
+    height: 100px;
+    background-color: #888;
+}
+
+#header .container .nav {
+    width: 1000px;
+    height: 100px;
+    background-color: #999;
+}
+
+.container {
+    width: 1200px;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+}
+
+#slider {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #bbb;
+}
+
+#contents {
+    width: inherit;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #999;
+
+}
+
+#contents .container {
+    display: flex;
+}
+
+#contents .container .notice_gallery {
+    width: 400px;
+    height: 200px;
+    background-color: #aaa;
+}
+
+#contents .container .banner {
+    width: 400px;
+    height: 200px;
+    background-color: #ddd;
+}
+
+#contents .container .link {
+    width: 400px;
+    height: 200px;
+    background-color: #ccc;
+}
+
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #777;
+}
+
+#footer .container {
+    display: flex;
+}
+
+#footer .container .footer_logo {
+    width: 200px;
+    height: 100px;
+    background-color: #888;
+}
+
+#footer .container .footer_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+#footer .container .footer_right .footer_menu {
+    width: 1000px;
+    height: 50%;
+    background-color: #666;
+}
+
+#footer .container .footer_right .footer_copyright {
+    width: 1000px;
+    height: 50%;
+    background-color: #999;
+}
+
+
+/* 
+다음에는 이렇게 해보자
+1번째 영역 (header) 색상 : #777
+ - 1-1 로고 #888
+ - 1-2 메뉴 #999
+
+2번째 영역 (슬라이드) 색상 : #bbb
+
+3번째 영역 (컨텐츠) 색상 : #999
+    - 3-1 #aaa
+    - 3-2 #ddd
+    - 3-3 #ccc
+
+4번째 영역 (footer) 색상 : #777
+    - f-1 #888
+    - f-2 #666
+    - f-3 #999
+
+컨테이너 영역 색상 : rgba(0, 0, 0, 0.4)
+*/
