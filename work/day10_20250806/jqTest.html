@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <style>
+        hr {
+            margin: 30px 0;
+        }
+
+        #flip,
+        #panel {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: 1px solid #c3c3c3;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+
+        #animate {
+            background: #98bf21;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>If you clink on the "Hide" button, I will disappear.</p>
+
+        <button id="hide">숨기기</button>
+        <button id="show">보여주기</button>
+
+        <hr>
+        <div id="flip">Click to slide down panel</div>
+        <div id="panel">Hello world!</div>
+
+        <hr>
+        <p>
+            By default, all HTML elements have a static position, and cannot be moved. <br>
+            To manipulate the position, remember to first set the CSS position property of the element to relative,
+            fixed, or absolute!
+        </p>
+        <button id="start_ani">Start animation</button>
+        <p></p>
+        <div id="animate"> </div>
+
+        <script src="./js/jquery-3.7.1.min.js"></script>
+        <script>
+            $("#hide").click(
+                function () {
+                    $("p").hide();
+                }
+            );
+
+            $("#show").click(
+                function () {
+                    $("p").show();
+                }
+            );
+
+            $("#flip").click(
+                function () {
+                    $("#panel").slideDown("slow");
+                }
+            );
+            $("#panel").click(
+                function () {
+                    $("#panel").slideUp("fast");
+                }
+            );
+
+            $("#start_ani").click(
+                function () {
+                    $("#animate").animate({ left: '250px' }, 1500);
+                }
+            );
+        </script>
+    </div>
+</body>
+
+</html>
